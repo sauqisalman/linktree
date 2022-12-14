@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      href="images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <title>Note12</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&display=swap");
+    @import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono|Montserrat:700");
+
+    * {
+      /* font-family: "Inconsolata", monospace; */
+      font-family: "Share Tech Mono", monospace;
+    }
+    html {
+      user-select: none;
+    }
+    a {
+      color: #f0c674;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+      text-transform: uppercase;
+      color: white;
+    }
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: black;
+    }
+    main {
+      padding: 10px;
+      background-color: #33373a;
+      display: flex;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    .side-satu {
+      flex: 1;
+      overflow-y: scroll;
+      padding-right: 10px;
+    }
+    .side-dua {
+      flex: 3;
+      border: 1px solid black;
+    }
+    h3,
+    h4,
+    li {
+      color: #cbd0d0;
+    }
+    .logo {
+      width: 100%;
+      padding: 0 10px;
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #33373a;
+      border-bottom: 4px solid #24282a;
+    }
+    .logo img {
+      display: block;
+      height: 35px;
+      opacity: 0;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+    button {
+      display: block;
+      height: 30px;
+      border-radius: 8px;
+    }
+    .fitur-dua {
+      display: flex;
+      align-items: center;
+    }
+    .material-symbols-outlined {
+      color: #a8bbbf;
+      cursor: pointer;
+    }
+    /* animasi menu */
+    .elemen-materi {
+      display: none;
+    }
+    .hide-logo {
+      display: none;
+    }
+    /* membuat container atau wadah dari scrollbar dengan lebar 20px  */
+    ::-webkit-scrollbar {
+      width: 18px;
+    }
+    /* membuat background dari scrollbar */
+    /* kasih warna transparan agar lebih estetik  */
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+    /* membuat styling pada batang atau bar scrollbar  */
+    /* kita beri warna abu tua dengan lengkungan di sisi atas dan bawahnya  */
+    ::-webkit-scrollbar-thumb {
+      background-color: #d6dee1;
+      border-radius: 20px;
+      border: 6px solid transparent;
+      background-clip: content-box;
+    }
+    /* warna akan berubah menjadi abu mudah saat kursor diarahkan  */
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #a8bbbf;
+    }
+    /* responsive */
+    @media (max-width: 500px) {
+      main {
+        flex-direction: column;
+      }
+      .side-satu {
+        flex: 1;
+      }
+      .side-dua {
+        flex: 2;
+        margin-top: 5px;
+      }
+    }
+  </style>
+  <body>
+    <div class="logo">
+      <div class="fitur">
+        <span class="material-symbols-outlined"> menu </span>
+        <a href="Video/index.html" target="frame"
+          ><span class="material-symbols-outlined"> smart_display </span></a
+        >
+        <a href="Materi-Tambahan/Type Exercise/index.html" target="frame"
+          ><span class="material-symbols-outlined"> keyboard </span></a
+        >
+        <a href="E-Book/index.html" target="frame"
+          ><span class="material-symbols-outlined"> menu_book </span></a
+        >
+      </div>
+      <div class="fitur-dua">
+        <img src="images/logo/logo.png" alt="" class="note" />
+        <button id="btn">Go Fullscreen</button>
+      </div>
+    </div>
+    <main>
+      <div class="side-satu">
+        <div class="materi">
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Pak Aan</h3>
+          <ol>
+            <li>
+              <a href="Pak Aan/cara-install-debian-10.html" target="frame"
+                >Cara Install Debian 10</a
+              >
+            </li>
+            <li>
+              <a href="Pak Aan/setting-ip-debian.html" target="frame"
+                >Setting IP Debian</a
+              >
+            </li>
+            <li>
+              <a href="Pak Aan/remote-server-debian.html" target="frame"
+                >Remote Server Debian</a
+              >
+            </li>
+            <li>
+              <a href="Pak Aan/dns-server-debian.html" target="frame"
+                >DNS Server Debian</a
+              >
+            </li>
+            <li>
+              <a href="Pak Aan/web-server-debian.html" target="frame"
+                >Web Server Debian</a
+              >
+            </li>
+            <li>
+              <a href="Pak Aan/dhcp-server-debian.html" target="frame"
+                >DHCP Server Debian</a
+              >
+            </li>
+            <li>
+              <a href="Pak Aan/ftp-server-debian.html" target="frame"
+                >FTP Server Debian</a
+              >
+            </li>
+            <li>
+              <a href="Pak Aan/samba-server-debian.html" target="frame"
+                >Samba Server Debian</a
+              >
+            </li>
+            <li>
+              <a href="Pak Aan/mail-server-debian.html" target="frame"
+                >Mail Server Debian</a
+              >
+            </li>
+            <li>
+              <a href="Pak Aan/repository-debian.html" target="frame"
+                >Repository Debian</a
+              >
+            </li>
+            <li>
+              <a
+                href="Pak Aan/cara-kerja-network-connection.html"
+                target="frame"
+                >Cara Kerja Network Connection</a
+              >
+            </li>
+            <li>
+              <a
+                href="Pak Aan/cara-konfigurasi-resolvconf-permanen.html"
+                target="frame"
+                >Cara Konfigurasi resolv.conf Permanen</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Pak Amin</h3>
+          <ol>
+            <li><a href="Pak Amin/voip.html" target="frame">VOIP</a></li>
+            <li><a href="Pak Amin/pstn.html" target="frame">PSTN</a></li>
+            <li><a href="Pak Amin/pbx.html" target="frame">PBX</a></li>
+            <li>
+              <a href="Pak Amin/osi-layer.html" target="frame">OSI Layer</a>
+            </li>
+            <li>
+              <a
+                href="Pak Amin/instalasi-dan-konfigurasi-asterisk.html"
+                target="frame"
+                >Instalasi dan Konfigurasi Asterisk</a
+              >
+            </li>
+            <li>
+              <a
+                href="Pak Amin/instalasi-dan-konfigurasi-trixbox.html"
+                target="frame"
+                >Instalasi dan Konfigurasi Trixbox</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Pak Jefri</h3>
+          <ol>
+            <li>
+              <a href="Pak Jefri/subnetting.html" target="frame">Subnetting</a>
+            </li>
+            <li><a href="Pak Jefri/vlan.html" target="frame">Vlan</a></li>
+            <li>
+              <a href="Pak Jefri/firewall.html" target="frame">Firewall</a>
+            </li>
+            <li>
+              <a href="Pak Jefri/static-routing.html" target="frame"
+                >Static Routing</a
+              >
+            </li>
+            <li>
+              <a href="Pak Jefri/konfigurasi-vlan-sederhana.html" target="frame"
+                >Konfigurasi VLAN Sederhana</a
+              >
+            </li>
+            <li>
+              <a
+                href="Pak Jefri/cara-menghubungkan-mikrotik-ke-internet.html"
+                target="frame"
+                >Cara Menghubungkan Mikrotik ke Internet di GNS3</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Bu Santi</h3>
+          <ol>
+            <li>
+              <a href="Bu Santi/dasar-limit.html" target="frame">Dasar Limit</a>
+            </li>
+            <li>
+              <a href="Bu Santi/limit-tak-hingga.html" target="frame"
+                >Limit Tak Hingga</a
+              >
+            </li>
+            <li>
+              <a href="Bu Santi/dasar-turunan.html" target="frame"
+                >Dasar Turunan</a
+              >
+            </li>
+            <li>
+              <a href="Bu Santi/sifat-sifat-turunan.html" target="frame"
+                >Sifat-Sifat Turunan</a
+              >
+            </li>
+            <li>
+              <a
+                href="Bu Santi/menentukan-persamaan-garis-singgung.html"
+                target="frame"
+                >Menentukan Persamaan Garis Singgung Kurva</a
+              >
+            </li>
+            <li>
+              <a
+                href="Bu Santi/menentukan-nilai-stasioner-dan-titik-maksimum.html"
+                target="frame"
+                >Menentukan Nilai Stasioner dan Titik Maksimum</a
+              >
+            </li>
+            <li>
+              <a
+                href="Bu Santi/menentukan -interval-naik-dan-turun.html"
+                target="frame"
+                >Menentukan Interval Naik dan Turun Pada Fungsi</a
+              >
+            </li>
+            <li>
+              <a href="Bu Santi/dasar-integral.html" target="frame"
+                >Dasar Integral</a
+              >
+            </li>
+            <li>
+              <a
+                href="Bu Santi/penerapan-integral-tentu-luas-daerah.html"
+                target="frame"
+                >Penerapan Integral Tentu - Menentukan Luas Daerah</a
+              >
+            </li>
+            <li>
+              <a
+                href="Bu Santi/penerapan-integral-tentu-luas-daerah-dibatasi-oleh-dua-kurva.html"
+                target="frame"
+                >Penerapan Integral Tentu - Menentukan Luas Daerah Dibatasi Oleh
+                Dua Kurva</a
+              >
+            </li>
+            <li>
+              <a
+                href="Bu Santi/penerapan-integral-tentu-volume-benda-putar.html"
+                target="frame"
+                >Penerapan Integral Tentu - Menentukan Volume Benda Putar</a
+              >
+            </li>
+            <li>
+              <a href="Bu Santi/persamaan-kuadrat-dasar.html" target="frame"
+                >Persamaan Kuadrat Dasar</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Bu Hilda</h3>
+          <ol>
+            <li>
+              <a
+                href="Bu Hilda/membuat-surat-lamaran-pekerjaan.html"
+                target="frame"
+                >Membuat Surat Lamaran Pekerjaan</a
+              >
+            </li>
+            <li>
+              <a
+                href="Bu Hilda/menikmati-cerita-novel-sejarah.html"
+                target="frame"
+                >Menikmati Cerita Novel Sejarah</a
+              >
+            </li>
+            <li>
+              <a href="Bu Hilda/teks-editorial.html" target="frame"
+                >Teks Editorial</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Bu List</h3>
+          <ol>
+            <li>
+              <a href="Bu List/produksi-masal.html" target="frame"
+                >Produksi Masal</a
+              >
+            </li>
+            <li>
+              <a href="Bu List/laporan-keuangan.html" target="frame"
+                >Laporan Keuangan</a
+              >
+            </li>
+            <li>
+              <a href="Bu List/proposal-usaha.html" target="frame"
+                >Proposal Usaha</a
+              >
+            </li>
+            <li>
+              <a
+                href="Bu List/contoh-bukti-transaksi-keuangan.html"
+                target="frame"
+                >Contoh Bukti Transaksi Keuangan</a
+              >
+            </li>
+            <li>
+              <a
+                href="Bu List/metode-perhitungan-biaya-produksi.html"
+                target="frame"
+                >Metode Perhitungan Biaya Produksi - belum selesai</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Mam Lestari</h3>
+          <ol>
+            <li>
+              <a
+                href="Mam Lestari/asking-and-giving-opinion.html"
+                target="frame"
+                >Asking and Giving Opinion</a
+              >
+            </li>
+            <li>
+              <a href="Mam Lestari/cause-and-effect.html" target="frame"
+                >Cause and Effect</a
+              >
+            </li>
+            <li>
+              <a href="Mam Lestari/application-letter.html" target="frame"
+                >Application Letter</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Ujian Praktek LSP</h3>
+          <ol>
+            <li>
+              <a
+                href="Materi-Tambahan/LSP/konfigurasi-topologi-lsp2.html"
+                target="frame"
+                >Konfigurasi Topologi LSP 2</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Mikrotik</h3>
+          <ol>
+            <li>
+              <a
+                href="Materi-Tambahan/Mikrotik/static-routing.html"
+                target="frame"
+                >Static Routing</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/Mikrotik/dynamic-routing.html"
+                target="frame"
+                >Dynamic Routing - Protokol RIP</a
+              >
+            </li>
+            <li>
+              <a href="Materi-Tambahan/Mikrotik/dhcp-server.html" target="frame"
+                >DHCP Server</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Materi UTBK</h3>
+          <ol>
+            <li><a href="">Potensi Kognitif</a></li>
+            <li><a href="">Penalaran Matematika</a></li>
+            <li><a href="">Literasi Bahasa Indonesia</a></li>
+            <li><a href="">Literasi Bahasa Inggris</a></li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>SPM Matematika SMK</h3>
+          <ol>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/bilangan-berpangkat-bentuk-akar-logaritma.html"
+                target="frame"
+                >Bilangan Berpangkat, Bentuk Akar, dan Logaritma</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/persamaan-kuadrat.html"
+                target="frame"
+                >Persamaan Kuadrat dan Sistem Persamaan Linear</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/matriks.html"
+                target="frame"
+                >Matriks</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/program-linear.html"
+                target="frame"
+                >Program Linear</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/trigonometri.html"
+                target="frame"
+                >Trigonometri</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/fungsi-linear-dan-kuadrat.html"
+                target="frame"
+                >Fungsi Linear dan Kuadrat</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/barisan-dan-deret.html"
+                target="frame"
+                >Barisan dan Deret</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/transformasi-geometri.html"
+                target="frame"
+                >Transformasi Geometri</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/dimensi-tiga.html"
+                target="frame"
+                >Dimensi Tiga</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/peluang.html"
+                target="frame"
+                >Peluang</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/statistika.html"
+                target="frame"
+                >Statistika</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/persamaan-lingkaran.html"
+                target="frame"
+                >Persamaan Lingkaran</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/limit-dan-turunan-fungsi.html"
+                target="frame"
+                >Limit dan Turunan Fungsi</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/SPM-Matematika-SMK/integral.html"
+                target="frame"
+                >Integral</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Catatan Quipper</h3>
+          <h4>Matematika</h4>
+          <ol>
+            <li>
+              <a
+                href="Materi-Tambahan/Quipper/trigonometri-dasar.html"
+                target="frame"
+                >PDF - Trigonometri</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/Quipper/geometri-ruang.html"
+                target="frame"
+                >PDF - Geometri Ruang</a
+              >
+            </li>
+            <li>
+              <a href="Materi-Tambahan/Quipper/dimensi-tiga.html" target="frame"
+                >PDF - Dimensi Tiga</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/Quipper/definisi-trigonometri-serta-rasio-trigonometri.html"
+                target="frame"
+                >Definisi Trigonometri Serta Rasio Trigonometri. Sinus Kosinus
+                dan Tangen</a
+              >
+            </li>
+          </ol>
+          <h4>Bahasa Indonesia</h4>
+          <ol>
+            <li>
+              <a
+                href="Materi-Tambahan/Quipper/surat-lamaran-pekerjaan.html"
+                target="frame"
+                >PDF - Surat Lamaran Pekerjaan</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/Quipper/teks-cerita-novel-sejarah.html"
+                target="frame"
+                >PDF - Teks Cerita Sejarah (Novel Cerita Sejarah)</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/Quipper/identifikasi-isi-surat-lamaran-pekerjaan.html"
+                target="frame"
+                >Identifikasi isi Surat Lamaran Pekerjaan</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/Quipper/struktur-teks-cerita-sejarah.html"
+                target="frame"
+                >Struktur Teks Cerita Sejarah - Novel Sejarah</a
+              >
+            </li>
+          </ol>
+          <h4>Bahasa Inggris</h4>
+          <ol>
+            <li>
+              <a
+                href="Materi-Tambahan/Quipper/offering-help-and-assistance.html"
+                target="frame"
+                >PDF - Offering Help and Assistence</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Bahasa Inggris</h3>
+          <ol>
+            <li>
+              <a
+                href="Materi-Tambahan/Bahasa Inggris/pengertian-tenses.html"
+                target="frame"
+                >Pengertian Tenses</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/Bahasa Inggris/simple-present-tense.html"
+                target="frame"
+                >Simple Present Tense</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/Bahasa Inggris/present-continuous-tense.html"
+                target="frame"
+                >Present Continuous Tense</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/Bahasa Inggris/present-perfect-tense.html"
+                target="frame"
+                >Present Perfect Tense</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/Bahasa Inggris/simple-past-tense.html"
+                target="frame"
+                >Simple Past Tense</a
+              >
+            </li>
+            <li>
+              <a
+                href="Materi-Tambahan/Bahasa Inggris/past-continuous-tense.html"
+                target="frame"
+                >Past Continuous Tense</a
+              >
+            </li>
+          </ol>
+          <hr class="border border-dark border-2 opacity-100" />
+          <h3>Glosarium</h3>
+          <ol>
+            <li>
+              <a href="Materi-Tambahan/Glosarium/glosarium.html" target="frame"
+                >Glosarium</a
+              >
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="side-dua">
+        <iframe name="frame" src="" frameborder="0"></iframe>
+      </div>
+    </main>
+    <!-- script bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <!-- script toggle menu -->
+    <script>
+      var menuIcon = document.querySelector(".material-symbols-outlined");
+      var materi = document.querySelector(".side-satu");
+
+      menuIcon.onclick = function () {
+        materi.classList.toggle("elemen-materi");
+      };
+
+      // button full screen
+
+      let myDocument = document.documentElement;
+      let btn = document.getElementById("btn");
+
+      btn.addEventListener("click", () => {
+        if (btn.textContent == "Go Fullscreen") {
+          if (myDocument.requestFullscreen) {
+            myDocument.requestFullscreen();
+          } else if (myDocument.msRequestFullscreen) {
+            myDocument.msRequestFullscreen();
+          } else if (myDocument.mozRequestFullScreen) {
+            myDocument.mozRequestFullScreen();
+          } else if (myDocument.webkitRequestFullscreen) {
+            myDocument.webkitRequestFullscreen();
+          }
+          btn.textContent = "Exit Fullscreen";
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.msexitFullscreen) {
+            document.msexitFullscreen();
+          } else if (document.mozexitFullscreen) {
+            document.mozexitFullscreen();
+          } else if (document.webkitexitFullscreen) {
+            document.webkitexitFullscreen();
+          }
+
+          btn.textContent = "Go Fullscreen";
+        }
+      });
+    </script>
+  </body>
+</html>
