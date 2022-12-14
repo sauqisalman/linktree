@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <p>LANGKAH - LANGKAH KONFIGURASI WEB SERVER DEBIAN :</p>
+      <ol>
+        <li>
+          Instal apache2 di debian, ketikan perintah :
+          <span style="color: red">apt install apache2</span>
+        </li>
+        <li>
+          Setting ip laptop kita dulu. Untuk preferred dns server kita masukan
+          ip debian kita.
+          <img
+            src="../images/pak aan/setting ip client.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Coba ketikan ip debian kita di browser, jika berhasil akan ada
+          tampilan seperti gambar. Tandanya kita telah berhasil menginstal
+          apache2 di debian kita.
+          <img
+            src="../images/pak aan/server apache.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Sekarang kita akan membuat web server untuk, contoh tkj.com dan
+          tjkt.com
+          <img src="../images/pak aan/tkj.com.png" class="img-fluid" alt="" />
+          <img src="../images/pak aan/tjkt.com.png" class="img-fluid" alt="" />
+        </li>
+        <li>
+          Masuk ke direktori html apache. Jika kita ketikan perintah ls maka
+          akan keluar index.html, kita akan buar folder tkj yang berisi
+          index.html
+          <pre>
+root@debian:cd /var/www/html                 
+                  </pre
+          >
+        </li>
+        <li>
+          Buat folder tkj
+          <pre>
+root@debian:/var/www/html# mkdir tkj
+
+root@debian:/var/www/html# cd tkj
+
+root@debian:/var/www/html/tkj# nano index.html  
+                  </pre
+          >
+        </li>
+        <li>
+          Kita buat file html sederhana untuk website tkj
+          <img
+            src="../images/pak aan/index tkj com.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kita masuk ke direktori sites-available, kemudian kita copy
+          000-default.conf untuk namanya menjadi tkj.conf
+          <pre>
+root@debian:cd /etc/apache2/sites-available
+
+root@debian:/etc/apache2/sites-available# cp 000-default.conf tkj.conf
+                  </pre
+          >
+        </li>
+        <li>
+          Kita masuk ke tkj.conf, kemudian edit di bagian yang ditandai merah,
+          jangan lupa untuk di save.
+          <pre>
+root@debian:/etc/apache2/sites-available# nano tkj.conf
+                  </pre
+          >
+          <img src="../images/pak aan/tkj-conf.png" class="img-fluid" alt="" />
+        </li>
+        <li>
+          Setelah itu restart apache2
+          <pre>
+root@debian:/etc/apache2/sites-available# systemctl restart apache2
+                  </pre
+          >
+        </li>
+        <li>
+          Setelah itu a2ensite tkj.conf
+          <pre>
+root@debian:/etc/apache2/sites-available# a2ensite tkj.conf
+                  </pre
+          >
+        </li>
+        <li>
+          Setelah itu restart lagi apache2
+          <pre>
+root@debian:/etc/apache2/sites-available# systemctl restart apache2
+                    </pre
+          >
+        </li>
+        <li>
+          Lakukan hal yang sama jika ingin membuat tjkt.com mulai dari bagian
+          html untuk tjkt dan untuk sites-availablenya jangan lupa buat juga
+          untuk tjkt.conf
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>

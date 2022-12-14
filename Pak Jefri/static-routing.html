@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <h3>Penjelasan :</h3>
+      <p>
+        Secara bahasa gampangnya routing adalah menyambungkan ip dengan network
+        yang berbeda.
+      </p>
+      <p>
+        Routing IP adalah proses pengiriman data dari satu host dalam satu
+        network ke host dalam network yang lain melalui suatu router. Agar
+        router dapat mengetahui bagaimana meneruskan paket paket ke alamat yang
+        dituju dengan mengunakan jalur terbaik, router menggunakan peta atau
+        tabel routing.
+      </p>
+      <div class="ratio ratio-16x9">
+        <iframe
+          src="https://www.youtube.com/embed/pZXqzPCD3cM"
+          title=""
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <h3>Topologi Sederhana Untuk Latihan Static Routing</h3>
+      <img
+        src="../images/pak jefri/topologi sederhana static routing.png"
+        class="img-fluid"
+        alt=""
+      />
+      <h3>Langkah - Langkah :</h3>
+      <ol>
+        <li>
+          Pastikan IP client/pc dan IP router sudah di setting sesuai gambar.
+        </li>
+        <li>
+          Kemudian coba test ping dari client/pc yang ada di router yang sama
+          (ping di pc1 ke RouterMikrotik-1, ping 192.168.1.2). Jika berhasil ke
+          langkah selanjutnya.
+        </li>
+        <li>
+          kemudian ketikan perintah : ip route print, di router.<img
+            src="../images/pak jefri/ip route print.png"
+            class="img-fluid"
+            alt=""
+          />
+          Artinya router kita baru bisa berkomunikasi dengan network 192.168.1.0
+          dan network 192.168.3.0
+        </li>
+        <li>
+          Kita ketikan perintah : ip route add, kemudian ketikan perintah : ip
+          route print
+          <img
+            src="../images/pak jefri/ip route add.png"
+            class="img-fluid"
+            alt=""
+          />
+          bisa dilihat terdapat route baru pada number 0, untuk dst-address
+          0.0.0.0/0 dan gateway-nya masih kosong.
+        </li>
+        <li>
+          Kemudian kita ketikan perintah : ip route edit
+          <img
+            src="../images/pak jefri/ip route edit.png"
+            class="img-fluid"
+            alt=""
+          />
+          untuk number : ketikan 0 dan untuk value-name : ketikan dst-address
+          (karena kita akan mengedit dst-address). Maksud dari dst-address ini
+          adalah kita akan memperkenalkan router, agar router bisa terhubung
+          atau bisa berkomunikasi dengan network tersebut. Kemudian tekan ctrl +
+          o, untuk save konfigurasi. Bisa dilihat untuk bagian dst-address sudah
+          berubah menjadi 192.168.2.0/29
+          <img
+            src="../images/pak jefri/dst-address.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Ketikan perintah : ip route edit
+          <img
+            src="../images/pak jefri/ip route edit.png"
+            class="img-fluid"
+            alt=""
+          />
+          untuk number : ketikan 0 dan untuk value-name : ketikan gateway
+          (karena kita akan mengedit gateway). Untuk gateway masukan IP dimana
+          RouterMikrotik-1 terhubung dengan RouterMikrotik-2, untuk IP-nya
+          192.168.3.2 (logikanya RouterMikrotik-1 mau berkomunikasi dengan
+          client di RouterMikrotik-2 lewat jalur mana). Kemudian tekan ctrl + o,
+          untuk save konfigurasi. Bisa dilihat untuk bagian gateway sudah
+          berubah menjadi 192.168.3.2
+          <img
+            src="../images/pak jefri/gateway edit.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>Lakukan hal yang sama dengan RouterMikrotik-2</li>
+      </ol>
+      <h3>Topologi Sederhana Untuk Latihan Static Routing 3 Router</h3>
+      <img
+        src="../images/pak jefri/konsep routing 3 router.png"
+        class="img-fluid"
+        alt=""
+      />
+    </main>
+  </body>
+</html>

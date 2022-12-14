@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <p>LANGKAH-LANGKAH MELAKUKAN REMOTE SERVER DEBIAN :</p>
+      <ol>
+        <li>
+          Untuk settingan network adapternya seperti gambar
+          <img
+            src="../images/pak aan/network-adapter.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Setting Ip debian dan Ip VM1 menjadi satu network. Contoh Ip debian
+          192.168.1.1 dan untuk Ip VM1 192.168.1.124
+        </li>
+        <li>
+          Untuk default gateway-nya masukan Ip debian yang sudah kita buat yaitu
+          192.168.1.1
+          <img
+            src="../images/pak aan/interfaces_ip.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Setting ip laptop kita
+          <img src="../images/pak aan/ip-vm1.png" class="img-fluid" alt="" />
+        </li>
+        <li>
+          Instal paket ssh server di debian, ketikan perintah :
+          <span style="color: red">apt-get install openssh-server</span>
+        </li>
+        <li>
+          Kemudian ketikan perintah :
+          <span style="color: red">nano /etc/ssh/sshd_config</span>
+          <img src="../images/pak aan/sshconfig.png" class="img-fluid" alt="" />
+          Untuk keluar dari sesi ini tekan : ctrl + o (untuk save) kemudian
+          tekan Enter, tekan ctrl + x (untuk keluar)
+        </li>
+        <li>
+          Restart ssh, ketikan perintah :
+          <span style="color: red">service ssh restart</span>
+        </li>
+        <li>
+          <img src="../images/pak aan/putty.png" class="img-fluid" alt="" />
+          Masuk ke aplikasi PUTTY, pada bagian Host Name masukan ip address
+          debian yang sudah kita setting di bagian interfaces. Kemudian klik
+          open
+        </li>
+        <li>login as : root, password : password debian yang kita buat</li>
+      </ol>
+    </main>
+  </body>
+</html>

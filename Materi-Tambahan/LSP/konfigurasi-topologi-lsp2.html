@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <h1>Langkah-Langkah Konfigurasi Topologi LSP</h1>
+      <img
+        src="../../images/materi tambahan/topologi-lsp 1.jpeg"
+        alt=""
+        class="img-fluid"
+      />
+      <img
+        src="../../images/materi tambahan/topologi-lsp 2.png"
+        alt=""
+        class="img-fluid"
+      />
+      <ul>
+        <li><span>KONFIGURASI RB MASTER</span></li>
+        <li>Yang di setting di RB Master</li>
+        <ol>
+          <li>Masukan sumber internet</li>
+          <li>Tambahkan dhcp-client untuk sumber internet</li>
+          <li>Setting dns untuk sumber internet</li>
+          <li>Tambahkan firewall nat untuk sumber internet</li>
+          <li>Tambahkan vlan yang dibutuhkan</li>
+          <li>Beri ip untuk vlan</li>
+          <li>Tambahkan dhcp-server untuk vlan</li>
+          <li>Tambahkan firewall filter</li>
+        </ol>
+      </ul>
+      <ol>
+        <li>
+          Reset router
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/1.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Masukan sumber internet. Bisa menggunakan wlan atau kabel ethernet
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/2.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Tambahkan dhcp-client sumber internet
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/3.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Aktifkan allow remote request dns
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/4.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Tambahkan firewall nat untuk sumber internet, disini kita menambahkan
+          untuk wlan1
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/5.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Coba untuk tes ping 8.8.8.8
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/6.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Tambahkan vlan10 dan vlan20 pada interface ether1
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/7.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Tambahkan ip address untuk vlan10 dan vlan20 <br />
+          vlan10 = 10.10.10.1/28 <br />
+          vlan20 = 10.10.10.17/29 <br />
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/8.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Buat dhcp-server untuk vlan10 dan vlan20
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/9.png"
+            alt=""
+            class="img-fluid"
+          />
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/10.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Tambahkan firewall filter
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/11.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+      </ol>
+
+      <ul>
+        <li><span>KONFIGURASI RB SWITCH</span></li>
+        <li>Yang di konfigurasi di RB Switch</li>
+        <ol>
+          <li>Buat bridge</li>
+          <li>Setting vlan-filtering menjadi yes</li>
+          <li>Tambahkan bridge port untuk ehter yang terhubung</li>
+          <li>Tambahkan bridge vlan</li>
+        </ol>
+      </ul>
+      <ol>
+        <li>
+          Reset router
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/1.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Buat bridge
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/12.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Setting vlan-filtering menjadi yes
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/13.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Tambahkan bridge port untuk ether1, ether2, dan ether3 <br />
+          untuk ether2 dan ether3 tambahkan pvid
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/14.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Tambahkan bridge vlan
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/15.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+      </ol>
+
+      <ul>
+        <li><span>SETTINGAN UNTUK PC CLIENT</span></li>
+      </ul>
+      <ol>
+        <li>
+          Buka network connection di pc kemudian cek port yang terhubung dengan
+          router, apakah sudah mendapatkan ip
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/16.png"
+            alt=""
+            class="img-fluid"
+          />
+          <img
+            src="../../images/materi tambahan/Konfigurasi Topologi/17.png"
+            alt=""
+            class="img-fluid"
+          />
+          Jika belum dapat ip, disable kemudian enable port ethernet
+        </li>
+      </ol>
+      <ul>
+        <li>
+          <span>Menambahkan VLAN-Management</span> Berfungsi untuk melakukan
+          remote router
+        </li>
+      </ul>
+      <ol>
+        <li>
+          Di rb master buat 1 vlan pembantu (vlan99, dengan ip misalkan
+          192.168.99.1/29), di ether yang sama dengan vlan10 dan vlan20
+        </li>
+        <li>
+          di rb switch buat juga vlan99, dengan ip satu network dengan ip 99 di
+          rb master misalkan 192.168.99.2/29 letak vlan99 di rb swith terletak
+          pada interface bridge vlan
+        </li>
+      </ol>
+      <ul>
+        <li><span>Settingan RB Master</span></li>
+      </ul>
+      <ol>
+        <li>
+          Tambahkan vlan management, contoh vlan99 di interface yang sama dengan
+          vlan10 dan vlan20
+        </li>
+        <li>Beri ip address vlan99, 192.168.99.1/29</li>
+        <li>Setting dhcp-server untuk vlan99</li>
+      </ol>
+      <ul>
+        <li><span>Settingan untuk RB Switch</span></li>
+      </ul>
+      <ol>
+        <li>Tambahkan vlan99 untuk interface bridge-vlan</li>
+        <li>
+          Tambahkan bridge vlan untuk vlan-id 99, tagged bridge dan ether
+          trunking
+        </li>
+        <li>Tambahkan ip dhcp-client untuk interface vlan99</li>
+      </ol>
+      <ul>
+        <li><span>Cara melakukan remote router</span></li>
+      </ul>
+      <ol>
+        <li>
+          Untuk meremot antar mikrotik colokan kabel ke sumber vlan di rb switch
+        </li>
+        <li>Untuk meremot rb master seharusnya sudah bisa</li>
+        <li>
+          Jika ingin meremot rb switch masukan ip yang sudah di dapat dari
+          dhcp-client
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>

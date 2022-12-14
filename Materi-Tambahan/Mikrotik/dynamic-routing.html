@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <h3>KONSEP DASAR DYNAMIC ROUTING</h3>
+      <h4>Penjelasan :</h4>
+      <p>
+        Adalah routing yang dilakukan oleh router dengan cara membuat jalur
+        komunikasi data secara otomatis sesuai dengan pengaturan yang dibuat.
+      </p>
+      <p>Untuk protokol yang digunakan adalah RIP Routing</p>
+      <div class="ratio ratio-16x9">
+        <iframe
+          src="https://www.youtube.com/embed/L6lBgnw1CaM"
+          title="GNS3 + Virtualbox | Routing Dinamis Protocol RIP Mikrotik | Kumpulan Tutorial Jaringan"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p>Topologi sederhana untuk latihan dynamic-routing 2 router</p>
+      <img
+        src="../../images/mikrotik/topologi dynamic routing.png"
+        class="img-fluid"
+        alt=""
+      />
+      <h4>Langkah-Langkah :</h4>
+      <ol>
+        <li>
+          Beri ip untuk masing-masing ether1 dan ether2 pada setiap router
+          seperti contoh pada gambar.
+        </li>
+        <li>
+          Konfigurasi dhcp-server untuk interface ether1 agar bisa memberikan ip
+          ke pc client.
+        </li>
+        <li>
+          <pre>Setting Mikrotik 1</pre>
+          Tambahkan routing interface
+          <img
+            src="../../images/mikrotik/add interface routing.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Setting bagian rip, untuk distribute-default menjadi always dan untuk
+          redistribute-connected menjadi yes.
+          <img
+            src="../../images/mikrotik/rip print.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Tambahkan network yang ingin di routing
+          <img
+            src="../../images/mikrotik/add network routing.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>Lakukan hal yang sama untuk Router Mikrotik 2</li>
+      </ol>
+      <h4>Topologi Sederhana Untuk Latihan Dynamic Routing 3 Router</h4>
+      <img
+        src="../../images/mikrotik/topologi dynamic routing 3 router.png"
+        class="img-fluid"
+        alt=""
+      />
+    </main>
+  </body>
+</html>

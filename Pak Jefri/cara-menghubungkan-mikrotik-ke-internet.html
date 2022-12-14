@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <ol>
+        <li>
+          Syarat, untuk versi GNS3 dan GNS VM sama
+          <img
+            src="../images/pak jefri/versi gns.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Untuk setingan network connection seperti gambar
+          <img
+            src="../images/pak jefri/network-adapter-gns.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kemudian kita buka setingan ip di pc kita, kita shared wifi yang kita
+          gunakan. Ceklis di bagian kotak merah, terus kotak di bawahnya pilih
+          untuk vmnet1
+          <img
+            src="../images/pak jefri/wifi-properties-laptop.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kita pergi ke aplikasi GNS3, kemudian kita masuk ke pilihan edit -->
+          preferences... <br />
+          klik GNS3 VM --> ceklis enable the GNS3 VM --> arahkan VM name ke
+          GNS3<br />
+          kemudian klik apply --> oke
+          <img
+            src="../images/pak jefri/gns3-preferences.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Tunggu sampai server summary pada gns3 menjadi hijau
+          <img
+            src="../images/pak jefri/server-summary.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Buat topologi sederhana seperti gambar
+          <img
+            src="../images/pak jefri/topologi-sederhana-gns3.png"
+            class="img-fluid"
+            alt=""
+          />
+          <img
+            src="../images/pak jefri/server summary.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Tambahkan mikrotik baru, tapi untuk server typenya seperti gambar
+          <img
+            src="../images/pak jefri/server type mikrotik.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Buka mikrotik, kemudian ketikan perintah : ip add print. Seharusnya
+          sudah mendapatkan ip pada ether1
+          <img
+            src="../images/pak jefri/ip-add-pr.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kemudian ketikan perintah : ip dhcp-client print. Seharusnya statusnya
+          sudah bound
+          <img
+            src="../images/pak jefri/ip-dhcp-client.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Coba untuk tes ping mikrotik ke 8.8.8.8 dan google.com
+          <img
+            src="../images/pak jefri/tes ping mikrotik.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kita tambahkan ip untuk ether2(port ether yang terhubung ke pc)
+          <img
+            src="../images/pak jefri/ip add ether2.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kemudian tambahkan ip firewall nat pada mikrotik
+          <img
+            src="../images/pak jefri/ip firewall nat.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Buka pc, kemudian tambahkan ip yang satu segment dengan ip pada ether2
+          di mikrotik dan untuk gatewaynya masukan ip ether2 mikrotik. Tambahkan
+          juga ip dns
+          <img
+            src="../images/pak jefri/ip cilent gns3.png"
+            class="img-fluid"
+            alt=""
+          />
+          <img
+            src="../images/pak jefri/ip dns client gns3.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Sekarang coba tes ping 8.8.8.8 pada pc
+          <img
+            src="../images/pak jefri/tes ping pc.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>

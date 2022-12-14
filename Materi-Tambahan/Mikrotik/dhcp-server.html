@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <h3>KONFIGURASI DHCP SERVER MIKROTIK</h3>
+      <h4>Penjelasan :</h4>
+      <p>
+        DHCP atau Dynamic Host Configuration Protocol adalah salah satu service
+        yang dapat membuat perangkat membagikan IP Address secara otomatis pada
+        host dalam sebuah jaringan. Tidak hanya IP Address saja, DHCP juga dapat
+        membagikan informasi default gateway, DNS, dan netmask network.
+      </p>
+      <h4>Langkah-Langkah :</h4>
+      <img
+        src="../../images/mikrotik/topologi dhcp server.png"
+        class="img-fluid"
+        alt=""
+      />
+      <p>
+        Disini kita akan memberikan IP kepada PC 1, 2, dan 3 secara dhcp(secara
+        otomatis).
+      </p>
+      <ol>
+        <li>
+          Buka router, kemudian ketikan perintah : interface bridge add (artinya
+          kita akan menambahkan bridge di router kita). Setelah itu kita ketikan
+          perintah : interface bridge print (kita akan melihat apakah bridge
+          yang sudah kita buat sudah ada atau belum).
+          <img
+            src="../../images/mikrotik/bridge add.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Setelah itu kita masukan port ether1, ether2, dan ether3 ke dalam
+          bridge. Ketikan perintah : interface bridge port add, untuk interface
+          kita masukan satu persatu dan untuk bridge kita masukan bridge1.
+          <img
+            src="../../images/mikrotik/port add.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Selanjutnya kita beri IP bridge1, ketikan perintah : ip address add
+          address=192.168.30.1/29 interface=bridge1. Kemudian ketikan perintah :
+          ip address print (untuk melihat apakah IP yang kita berikan sudah
+          masuk atau belum).
+          <img
+            src="../../images/mikrotik/ip bridge.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kita akan membuat dhcp-server untuk bridge1 agar bridge1 bisa
+          memberikan IP ke PC1, 2, dan 3 secara otomatis. Ketikan perintah : ip
+          dhcp-server setup, kemudian untuk interface : bridge1.
+          <img
+            src="../../images/mikrotik/dhcp setup.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Ketikan perintah : dhcp, pada PC1, 2, dan 3. Maka secara otomatis PC
+          akan mendapatkan alamat IP.
+          <img
+            src="../../images/mikrotik/dhcp pc.png"
+            class="img-fluid"
+            alt=""
+          />
+          <img
+            src="../../images/mikrotik/dhcp pc2.png"
+            class="img-fluid"
+            alt=""
+          />
+          <img
+            src="../../images/mikrotik/dhcp pc3.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>

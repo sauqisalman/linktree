@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <p>LANGKAH-LANGKAH KONFIGURASI MAIL SERVER DEBIAN</p>
+      <p>sumber : <a href="https://youtu.be/JlWO4ItWoGY" target="_blank">https://youtu.be/JlWO4ItWoGY</a></p>
+      <ol>
+        <li>
+          Instal mariadb-server <br />
+          # apt install mariadb-server -y
+        </li>
+        <li>
+          Konfigurasi database supaya bisa diakses oleh user root <br />#
+          mariadb -u root <br />
+          kemudian ikuti ketikan seperti gambar
+          <img
+            src="../images/pak aan/mariadb config.png"
+            alt=""
+            class="img-fluid"
+          />
+        </li>
+        <li>
+          Instal dovecot <br />
+          # apt install dovecot-imapd -y
+        </li>
+        <li>
+          Lanjut ke konfigurasi dovecotnya, kita masuk ke direktori dovecot
+          <br />
+          # cd /etc/dovecot/conf.d
+        </li>
+        <li>
+          Kemudian masuk ke 10-mail.conf <br />
+          # nano 10-mail.conf <br />
+          kemudian ikuti seperti gambar
+          <img
+            src="../images/pak aan/mariadb config 2.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Lanjut instal postfix <br /># apt install postfix -y
+          <br />
+          pada bagian ini kita pilih local only saja
+          <img
+            src="../images/pak aan/mariadb config 3.png"
+            class="img-fluid"
+            alt=""
+          />
+          kemudian untuk bagian system mail name kita isikan dengan domain yang
+          sudah kita buat
+          <img
+            src="../images/pak aan/mariadb config 4.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kemudian kita tentukan mail direktori mail servernya <br />#
+          maildirmake.dovecot /etc/skel/Maildir
+        </li>
+        <li>
+          Lanjut seting postfix-nya <br />
+          # nano /etc/postfix/main.cf <br />
+          kebagian paling bawah kemudian pada baris baru ketikan seperti gambar
+          <img
+            src="../images/pak aan/mariadb config 5.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kita konfigurasi ulang postfix-nya <br /># dpkg-reconfigure postfix
+          <img
+            src="../images/pak aan/mariadb config 6.png"
+            class="img-fluid"
+            alt=""
+          />
+          <img
+            src="../images/pak aan/mariadb config 7.png"
+            class="img-fluid"
+            alt=""
+          />
+          <img
+            src="../images/pak aan/mariadb config 8.png"
+            class="img-fluid"
+            alt=""
+          />
+          bagian other destinations to accept .... kita isikan dengan domain
+          kita dan localhost, seperti gambar
+          <img
+            src="../images/pak aan/mariadb config 9.png"
+            class="img-fluid"
+            alt=""
+          />
+
+          <img
+            src="../images/pak aan/mariadb config 10.png"
+            class="img-fluid"
+            alt=""
+          />
+          untuk locat networks kita isikan dengan network dari IP yang kita
+          gunakan dan masukan juga 0.0.0.0/0
+          <img
+            src="../images/pak aan/mariadb config 11.png"
+            class="img-fluid"
+            alt=""
+          />
+          enter
+          <img
+            src="../images/pak aan/mariadb config 12.png"
+            class="img-fluid"
+            alt=""
+          />
+          enter
+          <img
+            src="../images/pak aan/mariadb config 13.png"
+            class="img-fluid"
+            alt=""
+          />
+          pilih yang ipv4
+          <img
+            src="../images/pak aan/mariadb config 14.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kemudian install roundcube <br /># apt install roundcube -y
+          <img
+            src="../images/pak aan/mariadb config 15.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          kemudian kita konfigurasi roundcube <br /># dpkg-reconfigure roundcube
+          <br />
+          isikan dengan domain yang sudah kita buat
+          <img
+            src="../images/pak aan/mariadb config 16.png"
+            class="img-fluid"
+            alt=""
+          />
+          <img
+            src="../images/pak aan/mariadb config 17.png"
+            class="img-fluid"
+            alt=""
+          />
+          pilih yang TCP/IP
+          <img
+            src="../images/pak aan/mariadb config 18.png"
+            class="img-fluid"
+            alt=""
+          />
+          enter
+          <img
+            src="../images/pak aan/mariadb config 19.png"
+            class="img-fluid"
+            alt=""
+          />
+          enter
+          <img
+            src="../images/pak aan/mariadb config 20.png"
+            class="img-fluid"
+            alt=""
+          />
+          enter
+          <img
+            src="../images/pak aan/mariadb config 21.png"
+            class="img-fluid"
+            alt=""
+          />
+          enter
+          <img
+            src="../images/pak aan/mariadb config 22.png"
+            class="img-fluid"
+            alt=""
+          />
+          kosongin aja
+          <img
+            src="../images/pak aan/mariadb config 23.png"
+            class="img-fluid"
+            alt=""
+          />
+          enter
+          <img
+            src="../images/pak aan/mariadb config 24.png"
+            class="img-fluid"
+            alt=""
+          />
+          pastikan sudah dicentang dua-dua nya
+          <img
+            src="../images/pak aan/mariadb config 25.png"
+            class="img-fluid"
+            alt=""
+          />
+          enter
+          <img
+            src="../images/pak aan/mariadb config 26.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>Masuk ke direktori roundcube <br /># cd /etc/roundcube</li>
+        <li>
+          Kemudian masuk ke <br />
+          # nano config.inc.php <br />
+          kemudian kosongkan bagian yang diberi tanda panah
+          <img
+            src="../images/pak aan/mariadb config 27.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kemudian kita buat 2 user baru <br />
+          # adduser .....
+        </li>
+        <li>Kemudian kita reboot debian kita</li>
+        <li>
+          Kita seting webserver untuk roundcube-nya <br /># cd
+          /etc/apache2/sites-available
+        </li>
+        <li>
+          Copy file 000-default.conf <br /># cp 000-default.conf webmail.conf
+        </li>
+        <li>
+          Kemudian kita masuk ke webmail.conf yang sudah kita buat tadi <br />#
+          nano webmail.conf <br>
+          ketikan seperti gambar
+          <img
+            src="../images/pak aan/mariadb config 28.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>Jangan lupa untuk kita aktifkan <br># a2ensite</li>
+        <li>dan jangan lupa untuk restart apache2 nya <br> # systemctl restart apache2</li>
+        <li>Kemudian kita pergi ke browser ketikan <strong>webmail.tkj.id</strong> dan masukan user yang sudah dibuat</li>
+      </ol>
+    </main>
+  </body>
+</html>

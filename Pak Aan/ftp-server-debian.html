@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <p>LANGKAH - LANGKAH KONFIGURASI FTP SERVER DEBIAN (vsftpd) :</p>
+      <ol>
+        <li>
+          Install vsftpd, ketikan perintah :
+          <span style="color: red">apt install vsftpd</span>
+          <img
+            src="../images/pak aan/install vstpd.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Ketikan perintah :
+          <span style="color: red">nano /etc/vsftpd.conf</span> . Edit yang
+          bertanda merah.
+          <img
+            src="../images/pak aan/vsftpdconf1.png"
+            class="img-fluid"
+            alt=""
+          />
+          <img
+            src="../images/pak aan/vsftpdconf2.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Setting IP laptop kita agar satu network dengan IP Debian
+          <img src="../images/pak aan/set ip 1.png" class="img-fluid" alt="" />
+          <img src="../images/pak aan/set ip 2.png" class="img-fluid" alt="" />
+        </li>
+        <li>
+          Setelah mengedit lakukan restart, ketikan perintah :
+          <span style="color: red">/etc/init.d/vsftpd restart</span>, kemudian
+          tekan enter.
+          <img
+            src="../images/pak aan/restart vsftpd.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Setelah itu buat user untuk log on ke ftp nantinya, ketikan perintah :
+          <span style="color: red">adduser (namauser)</span>
+          <img src="../images/pak aan/adduser.png" class="img-fluid" alt="" />
+        </li>
+        <li>
+          Kita akan daftarkan user yang boleh log on ke ftp, ketikan perintah :
+          <span style="color: red">nano /etc/vsftpd.chroot_list</span>
+          <img src="../images/pak aan/chroot.png" class="img-fluid" alt="" />
+          contohnya disini saya akan memberi akses untuk user sauqisalman, maka
+          kita ketikan sauqisalman atau nama user yang akan didaftarkan
+          <img
+            src="../images/pak aan/chroot list.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Setelah mendaftarkan user yang bisa log on ftp, jangan lupa untuk
+          restart kembali, ketikan perintah :
+          <span style="color: red">/etc/init.head/vsftpd restart</span>
+        </li>
+        <li>
+          Sekarang kita coba untuk mengakses ftp server debian yang sudah kita
+          buat, kita buka file eksplorer pc kita, dibagian yang bertanda merah
+          ketikan :
+          <span style="color: red">ftp://172.17.15.3</span>. Maka akan muncul
+          kotak seperti gambar, isikan user yang sudah kita buat. Disini saya
+          menggunakan user sauqisalman dan masukan password yang sudah kita buat
+          kemudian tekan <b>Log On</b>.
+          <img
+            src="../images/pak aan/file eksplorer ftp.png"
+            class="img-fluid"
+            alt=""
+          />
+          kondisinya masih kosong tidak ada file atau folder
+          <img
+            src="../images/pak aan/folder empty.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Sekarang kita akan buat folder baru, pertama-tama kita buka cmd
+          kemudian ketikan perintah :
+          <span style="color: red">ftp 172.17.15.3</span>. Akan diminta
+          memasukan user, masukan user yang telah kita daftarkan disini saya
+          akan masuk menggunakan user sauqisalman.
+          <img src="../images/pak aan/ftp cmd.png" class="img-fluid" alt="" />
+          Kemudian ketikan perintah
+          <b>mkdir (nama folder yang ingin kalian buat)</b>, di sini saya
+          membuat folder dengan nama software
+          <img
+            src="../images/pak aan/mkdir software.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Kita akan isi folder tersebut, kalian bisa memasukan file aplikasi,
+          file word, foto, dan sebagainya. Kalian buka aplikasi FileZilla.
+          <img src="../images/pak aan/filezila1.png" class="img-fluid" alt="" />
+          Untuk <b>Host</b> ketikan IP ftp debian kita, untuk
+          <b>username</b> dan <b>password</b> masukan user yang sudah kita
+          daftarkan dan untuk <b>port</b> 21 . Kemudian klik Quickconnect
+          <img src="../images/pak aan/filezila2.png" class="img-fluid" alt="" />
+          Tekan OK.
+          <img src="../images/pak aan/filezila3.png" class="img-fluid" alt="" />
+          Contoh disini saya akan memasukan aplikasi winbox ke folder software,
+          pilih aplikasi winbox kemudian drag and drop ke bagian kotak merah.
+          <img
+            src="../images/pak aan/drag winbox ftp.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Sekarang kita lihat lagi di file eksplorer. Sudah ada folder software
+          yang sudah kita buat tadi dan jika kita masuk ke foldernya sudah ada
+          aplikasi winbox yang sudah kita masukan menggunakan FileZilla.
+          <img src="../images/pak aan/software1.png" class="img-fluid" alt="" />
+          <img src="../images/pak aan/software2.png" class="img-fluid" alt="" />
+        </li>
+        <li><b>udah deh..</b></li>
+      </ol>
+      <p>LANGKAH - LANGKAH KONFIGURASI FTP SERVER DEBIAN (proftpd) :</p>
+      <ol>
+        <li>
+          Instal proftpd, ketikan perintah :
+          <span style="color: red">apt install proftpd</span>
+          <img
+            src="../images/pak aan/install proftpd.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Ketikan perintah :
+          <span style="color: red">nano /etc/proftpd/proftpd.conf</span>
+          <img
+            src="../images/pak aan/proftpdconf3.png"
+            class="img-fluid"
+            alt=""
+          />
+          ubah ipv6 on menjadi off
+          <img
+            src="../images/pak aan/proftpdconf4.png"
+            class="img-fluid"
+            alt=""
+          />
+          <img
+            src="../images/pak aan/proftpdconf5.png"
+            class="img-fluid"
+            alt=""
+          />
+          di sebelah anonymous masukan lokasi direktori file ftp kita
+          <img
+            src="../images/pak aan/proftpdconf6.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          masuk ke direktori home, ketikan perintah :
+          <span style="color: red">cd /home</span> , kemudian buat direktori
+          baru, contoh disini saya membuat direktori dengan nama file-ftp.
+          Ketikan perintah :
+          <span style="color: red">mkdir file-ftp</span>
+          <img
+            src="../images/pak aan/mkdir file ftp.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Ketikan perintah :
+          <span style="color: red">chmod 777 file-ftp/</span>
+          <img src="../images/pak aan/chmod.png" class="img-fluid" alt="" />
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>

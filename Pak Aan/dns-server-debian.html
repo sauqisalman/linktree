@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <p>LANGKAH-LANGKAH KONFIGURASI DNS SERVER DEBIAN :</p>
+      <ol>
+        <li>
+          Konfigurasi network interface debian
+          <pre>
+root@debian:~# nano /etc/network/interfaces
+
+auto ens34
+iface ens34 inet static
+address 172.17.15.3/18
+dns-search contohdomain.com
+dns-nameserver 172.17.15.3
+                    </pre
+          >
+        </li>
+        <li>
+          Instal bind9 dan dnsutils, ketikan perintah :
+          <span style="color: red">apt install bind9 dnsutils</span>
+        </li>
+        <li>
+          Masuk ke directory bind
+          <pre>
+root@debian:~# cd /etc/bind
+root@debian:/etc/bind#                       
+                    </pre
+          >
+        </li>
+        <li>
+          Buat file baru dengan nama db.domain dan db.ip
+          <pre>
+root@debian:/etc/bind# cp db.local db.domain
+root@debian:/etc/bind# cp db.127 db.ip   
+                    </pre
+          >
+        </li>
+        <li>
+          Masuk ke db.domain, edit sesuai ketentuan
+          <pre>
+                      root@debian:/etc/bind# nano db.domain
+
+                   ;
+                   $TTL    604800
+                   @       IN      SOA     sauqi.com. root.sauqi.com. (
+                                                 2              ; Serial
+                                            604800              ; Refresh
+                                             86400              ; Retry
+                                           2419200              ; Expire
+                                            604800 )            ; Negative Cache TTL
+                   ;
+                   @       IN      NS      sauqi.com.
+                   @       IN      A       172.17.15.3
+                   ns      IN      A       172.17.15.3
+                   www     IN      A       172.17.15.3
+                    </pre
+          >
+        </li>
+        <li>
+          Masuk ke db.ip, edit sesuai ketentuan
+          <pre>
+                      root@debian:/etc/bind# nano db.ip
+
+                   ;
+                   $TTL    604800
+                   @       IN      SOA     sauqi.com. root.sauqi.com. (
+                                                 2              ; Serial
+                                            604800              ; Refresh
+                                             86400              ; Retry
+                                           2419200              ; Expire
+                                            604800 )            ; Negative Cache TTL
+                   ;
+                   @       IN      NS      sauqi.com.
+                   3.15    IN      PTR     sauqi.com.
+                   3.15    IN      PTR     www.sauqi.com.
+                    </pre
+          >
+        </li>
+        <li>
+          Masuk ke named.conf, buat forward dan reverse
+          <pre>
+                      root@debian:/etc/bind# nano named.conf
+
+                    // This is the primary conf iguration file for the BIND DNS server named. 
+                    // 
+                    // Please read /usr/share/doc/bindB/README.Debian.gz for information on the 
+                    // structure of BIND conf iguration files in Debian, gou customize 
+                    // this conf iguration file.
+                    //
+                    // If gou are just adding zones, please do that in /etc/bind/named.conf . local 
+                    
+                    include "/etc/bind/named.conf .options"; 
+                    include "/etc/bind/named.conf . local";
+                    include "/etc/bind/named.conf .default-zones"; 
+
+                    # forward 
+                    zone "sauqi.com" { type master; file "/etc/bind/db.domain"; };
+                    
+                    # reverse 
+                    zone "17.172.in-addr.arpa" { type master; file "/etc/bind/db.ip"; };
+                    </pre
+          >
+        </li>
+        <li>
+          Masuk ke resolv.conf, untuk mengatur nameserver
+          <pre>
+                      root@debian:/etc/bind# nano /etc/resolv.conf
+                   
+                      nameserver 172.17.15.3
+                    </pre
+          >
+        </li>
+        <li>
+          Restart bind9, ketikan perintah :
+          <span style="color: red">systemctl restart bind9</span>
+        </li>
+        <li>
+          Jika ingin menambahkan domain, maka tambahkan di bagian file forward
+          misalnya, zone "salman.com" { type master; file "/etc/bind/db.salman";
+          }; kemudian buat db.salman. Di db.ip tambahkan juga salman.com dan
+          www.salman.com jangan lupa untuk di restart bind9-nya.
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <h3>Pengertian OSI Layer :</h3>
+      <p>
+        Pengertian OSI Layer adalah singkatan dari Open System Interconnection.
+        Sedang layer merupakan lapisan-lapisan prosedur yang terjadi dalam
+        proses pengiriman informasi atau data melalui koneksi jaringan antar
+        komputer.
+      </p>
+      <p>
+        Setiap komputer dalam jaringan memiliki cara berkomunikasinya
+        masing-masing. Komputer bermerek A memiliki bahasa sendiri, dan hanya
+        bisa berkomunikasi dengan perangkat lain yang bermerek sama. Hal
+        tersebut juga terjadi pada sistem jaringan. Di mana pertukaran informasi
+        antar jaringan tidak bisa terjalin dengan baik. Sementara tentu saja
+        proses komunikasi dibutuhkan tidak hanya oleh komputer dalam satu sistem
+        jaringan tertentu.
+      </p>
+      <p>
+        Maka, dibutuhkan standar khusus untuk memungkinkan komunikasi dapat
+        terjalin secara menyeluruh. Oleh karena itulah, kemudian ISO
+        (International Standart Organization) menetapkan standar OSI Layer
+        tentang protokol komunikasi untuk segala jenis sistem jaringan. Dari
+        sini dapat disimpulkan bahwa OSI Layer adalah sebuah konsep yang
+        memungkinkan pertukaran informasi terjadi antara berbagai jenis sistem
+        komunikasi komputer, dengan menggunakan protokol standar, yaitu TCP/IP.
+      </p>
+      <h3>Fungsi OSI Layer :</h3>
+      <p>
+        Dalam perjalanannya, para produsen komputer dan pengembang jaringan
+        internet tidak menerapkan protokol model OSI Layer secara baku. Pasalnya
+        tidak semua proses komunikasi memerlukan prosedur OSI Layer karena dapat
+        menggunakan protokol yang lebih sederhana.
+      </p>
+      <p>
+        Namun, konsep OSI Layer tidak serta merta ditinggalkan begitu saja.
+        Model prosedur ini masih banyak digunakan, terutama dalam melacak
+        permasalahan yang mengakibatkan gagalnya fungsi jaringan. Sehingga,
+        kemudian dapat diatasi dan komunikasi berjalan normal kembali.
+      </p>
+      <p>
+        OSI Layer bekerja melewati tujuh lapisan prosedur yang berurutan. Ketika
+        seseorang tidak bisa mengakses internet dengan laptopnya, berarti ada
+        masalah yang mungkin terjadi pada salah satu lapisan prosedur tersebut.
+      </p>
+      <p>
+        Konsep OSI Layer memudahkan proses pencarian titik awal permasalahan,
+        sehingga memangkas waktu yang diperlukan untuk melacak problem jaringan.
+        Dengan begitu, usaha untuk mengatasi masalah jaringan pun berjalan lebih
+        mudah dan singkat.
+      </p>
+      <h3>7 OSI Layer dan Penjelasannya :</h3>
+      <img
+        src="https://lamanit.com/wp-content/uploads/2022/02/cara-kerja-osi-layer.jpg"
+        class="img-fluid"
+        alt=""
+      />
+      <ol>
+        <li>
+          <b>Application</b>
+          <p>
+            Tahapan ini berhubungan langsung dengan pengguna. Application Layer
+            merupakan prosedur penyambungan komunikasi dari perangkat. Artinya,
+            Application Layer adalah penghubung antara perangkat dan sistem
+            komunikasi.
+          </p>
+          <p>
+            Contohnya saat mengirim surel. Program e-mail, seperti Gmail, akan
+            memulai komunikasi dengan jaringan sebelum pesan bisa dikirim. Di
+            sinilah Application Layer berlangsung melibatkan protokol HTTP,
+            SMTP, FTP, dan telnet.
+          </p>
+        </li>
+        <li>
+          <b>Presentation</b>
+          <p>
+            Presentation Layer bertanggung jawab untuk mempersiapkan data agar
+            bisa digunakan dengan program tertentu. Atau dengan kata lain,
+            mempresentasikan data agar program tersebut dapat menyerap,
+            mengakses, dan menggunakannya.
+          </p>
+          <p>
+            Presentation Layer berperan sebagai penerjemah bahasa komunikasi
+            yang berbeda antara dua perangkat komputer. Melakukan enkripsi data
+            dari perangkat sumber, lalu men-dekripsi-nya pada perangkat
+            penerima.
+          </p>
+        </li>
+        <li>
+          <b>Session</b>
+          <p>
+            Durasi waktu yang diperlukan untuk berkomunikasi disebut Session
+            atau sesi. Lapisan ini bertanggung jawab untuk membuka jaringan
+            dalam durasi waktu yang cukup agar pertukaran data berjalan dengan
+            baik.
+          </p>
+          <p>
+            Session Layer mengirimkan data melalui pos-pos. Contohnya, untuk
+            mengirim 100 data, Session Layer bisa mengatur penempatan pos setiap
+            10. Jika setelah mencapai 50 tiba-tiba jaringan putus, maka
+            pengiriman data bisa diulangi dari pos terakhir.
+          </p>
+        </li>
+        <li>
+          <b>Transport</b>
+          <p>
+            Transport Layer berperan sebagai penanggung jawab kiriman pesan
+            antara dua perangkat. Mengambil data dari layer sebelumnya dan
+            meneruskannya ke lapisan berikutnya, sekaligus memastikan bahwa data
+            tersampaikan dengan baik.
+          </p>
+          <p>
+            Lapisan ini juga bertanggung jawab mengendalikan alur komunikasi
+            antara dua perangkat yang kecepatan internetnya berbeda agar dapat
+            saling mengoptimalkan. Juga, memastikan data tersampaikan secara
+            lengkap dan meminta kiriman ulang jika gagal.
+          </p>
+        </li>
+        <li>
+          <b>Network</b>
+          <p>
+            Network berarti jaringan. Dalam hal ini, Network Layer bertugas
+            untuk memberikan jalur, sebagai fasilitas bagi proses pertukaran
+            informasi antara dua jaringan berbeda. Network Layer tidak
+            diperlukan pada komunikasi perangkat di jaringan yang sama.
+          </p>
+          <p>
+            Network Layer mencari jalur komunikasi terbaik antarjaringan
+            (routing). Lapisan ini menyalurkan data kiriman dari perangkat
+            sumber dengan cara membaginya dalam paket-paket kecil. Lalu
+            menyusunnya kembali ketika telah sampai pada perangkat penerima.
+          </p>
+        </li>
+        <li>
+          <b>Data Link</b>
+          <p>
+            Jika Network Layer adalah penyalur informasi antarjaringan, Data
+            Link merupakan pemberi jalur komunikasi di dalam jaringan yang sama.
+            Tugas-tugasnya hampir sama dengan Network Layer dan Transport Layer,
+            hanya saja internal dalam satu jaringan.
+          </p>
+        </li>
+        <li>
+          <b>Physical</b>
+          <p>
+            Lapisan paling dasar dari ketujuh OSI Layer. Bertanggung jawab
+            mentransmisikan data dalam bentuk bit stream. Physical Layer
+            mencakup segala peranti pertukaran informasi yang dimiliki oleh dua
+            perangkat yang melakukannya, termasuk kabel dan tombol-tombol.
+          </p>
+          <p>
+            Bit stream bisa dikatakan sebagai data digital. Bentuknya tak kasat
+            mata dan berurutan melalui alur tertentu yang bisa ditransmisikan
+            melalui media fisik. Contoh data digital, seperti tegangan listrik,
+            frekuensi radio, frekuensi internet, cahaya, dan lain-lain.
+          </p>
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>

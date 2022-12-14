@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <p>
+        Masalah yang terjadi adalah file resolv.conf akan berubah kembali
+        seperti semula ketika debian di restart
+      </p>
+      <ol>
+        <li>
+          Instal paket resolvconf
+          <pre>
+root@debian: apt install resolvconf
+                </pre
+          >
+        </li>
+        <li>
+          Aktifkan dan jalankan resolvconf
+          <pre>
+root@debian: systemctl enable resolvconf
+root@debian: systemctl start resolvconf
+root@debian: systemctl status resolvconf
+                </pre
+          >
+        </li>
+        <li>
+          Masukan ip address nameserver di dalam file head konfigurasi
+          resolvconf. ip address dns server di letakan di paling atas kemudian
+          selanjutnya untuk nameserver ip google
+          <pre>
+root@debian: nano /etc/resolvconf/resolv.conf.d/head  
+              </pre
+          >
+          <img
+            src="../images/pak aan/resolvconf-head.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Jika ingin merubah atau menambah ip address nameserver, ubah dibagian
+          file head dan jangan lupa untuk melakukan update resolvconf
+          <pre>
+root@debian: resolvconf -u
+              </pre
+          >
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <p>LANGKAH - LANGKAH KONFIGURASI SAMBA SERVER DEBIAN :</p>
+      <p>Penjelasan :</p>
+      <p>
+        Samba adalah aplikasi server yang memungkinkan Linux berbagi file dan
+        printer dengan PC client Windows dan Linux.
+      </p>
+      <ol>
+        <li>
+          Instal paket samba <br />
+          # apt install samba
+        </li>
+        <li>
+          Masuk ke home <br />
+          # cd /home
+        </li>
+        <li>
+          Buat direktori baru, sesuka kita. Contoh saya membuat direktori myfile
+          dan software <br />
+          # mkdir myfile <br />
+          # mkdir software
+        </li>
+        <li>
+          Beri permission untuk direktori yang kita buat <br /># chmod 777
+          myfile/ <br /># chmod 777 software/
+        </li>
+        <li>
+          Tambahkan user, misalnya saya akan menambahkan user salman <br />#
+          useradd salman
+        </li>
+        <li>Beri password untuk user kita <br /># smbpasswd -a salman</li>
+        <li>
+          Konfigurasi file samba <br /># nano /etc/samba/smb.conf <br />dibagian
+          ini kalian ke bagian paling bawah kemudian ketikan
+          <pre>
+
+[myfile] 
+path	= /home/myfile
+valid user = salman
+browseable = yes
+writeable = yes
+guest ok = no 
+      
+[software]
+path	= /home/software
+valid user = salman
+browseable = yes
+writeable = no
+guest ok = yes
+        </pre
+          >
+          Untuk yang didalam kurung siku sesuai dengan nama direktori kita
+        </li>
+        <li>Kemudian restart <br /># service smbd restart</li>
+        <li>
+          Tekan pada keyboard , windows + r . kemudian ketikan ip debian kita
+          contoh disini ip debian saya \\172.17.15.3 <br />maka akan muncul
+          tampilan seperti gambar
+          <img src="../images/pak aan/samba file.png" class="img-fluid" alt="">
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>

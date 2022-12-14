@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo/logo-favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Note12</title>
+  </head>
+  <body>
+    <main>
+      <p>LANGKAH - LANGKAH KONFIGURASI DHCP SERVER DEBIAN :</p>
+      <ol>
+        <li>
+          Instal dhcp server, ketikan perintah :
+          <span style="color: red">apt install isc-dhcp-server</span>
+        </li>
+        <li>
+          Konfigurasi dhcp server, ketikan perintah :
+          <span style="color: red">nano /etc/dhcp/dhcpd.conf</span>. Edit pada
+          bagian seperti gambar
+          <img
+            src="../images/pak aan/konfigurasi dhcp server debian 1.png"
+            class="img-fluid"
+            alt=""
+          />
+          <img
+            src="../images/pak aan/konfigurasi dhcp server debian 2.png"
+            class="img-fluid"
+            alt=""
+          />
+          <p>Penjelasan :</p>
+          <ul>
+            <li>
+              subnet berisi net id ip kalian, contoh ip yang digunakan
+              192.168.28.1 maka untuk subnetnya 192.168.28.0
+            </li>
+            <li>
+              netmask yaitu subnetmask yang kita gunakan, contoh disini kita
+              menggunakan /28 maka untuk netmasknya 255.255.255.240
+            </li>
+            <li>
+              range adalah jumlah host yang ingin kita berikan ip dhcp, contoh
+              disini kita menggunakan /28 maka untuk jumlah hostnya adalah 14
+              host jadi untuk ip rangenya adalah 192.168.28.2 (bukan
+              192.168.28.1 karena itu merupakan ip debian) sampai 192.168.28.14
+            </li>
+            <li>
+              option domain-namer-server diisi dengan ip debian kita, contoh
+              disini ip debian kita 192.168.28.1
+            </li>
+            <li>
+              option domain-name diisi dengan dns yang sudah kita buat pada dns
+              server debian kita, contoh disini saya mengisinya dengan tkj.com
+            </li>
+            <li>
+              option routers diisi dengan ip debian kita, contoh disini ip
+              debian kita 192.168.28.1
+            </li>
+            <li>
+              option brodcast-address diisi dengan ip broadcast dari ip yang
+              kita gunakan, contoh disini ip kita 192.168.28.1/28 maka untuk ip
+              broadcastnya yaitu 192.168.28.15
+            </li>
+          </ul>
+        </li>
+        <li>
+          Kemudian ketikan perintah :
+          <span style="color: red">nano /etc/default/isc-dhcp-server</span>, isi
+          pada bagian INTERFACESv4 sesuaikan pada interfaces yang ada pada
+          kalian
+          <img
+            src="../images/pak aan/interfacesv4.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Setelah itu masuk ke virtual network editor, disini kita changes
+          settings pada bagian host-only vmnet1, kita unchecklis pada bagian use
+          local DHCP service
+          <img
+            src="../images/pak aan/virtual network editor.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+        <li>
+          Masuk ke setingan network adapter pc kita, lihat pada bagian vmnet1
+          <img
+            src="../images/pak aan/ip dhcp vmnet1.png"
+            class="img-fluid"
+            alt=""
+          />
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>
